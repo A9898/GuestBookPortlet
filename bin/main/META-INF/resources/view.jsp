@@ -6,6 +6,7 @@
 <% Students studentIdZero = (Students) request.getAttribute("studentIdZero"); %>
 <% List<Students> listaStudenti = (List) request.getAttribute("listaStudenti"); %>
 
+
 <h1>${messaggio_benvenuto}</h1>
 
 <br>
