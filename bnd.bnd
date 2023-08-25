@@ -1,0 +1,4 @@
+Bundle-Name: GradebookPortlet
+Bundle-SymbolicName: com.training.gradebookPortlet
+Bundle-Version: 1.0.0
+Export-Package: com.training.gradebookPortlet.constants
