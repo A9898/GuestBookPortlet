@@ -1,10 +1,9 @@
 <%@ include file="/init.jsp" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.training.liferay.gradebookservicebuilder.model.Students" %>
 
 
 <% Students studentIdZero = (Students) request.getAttribute("studentIdZero"); %>
 <% List<Students> listaStudenti = (List) request.getAttribute("listaStudenti"); %>
+
 
 
 <h1>${messaggio_benvenuto}</h1>
@@ -34,3 +33,16 @@
   
  </c:forEach>
 </table> 
+
+<liferay-portlet:renderURL var="addStudentURL">
+    <liferay-portlet:param name="jspPage" value="/add_student.jsp" />
+</liferay-portlet:renderURL>
+
+
+<a id="addStudentLink" href="${addStudentURL}"> 
+	<button id="addStudentButton"> Aggiungi Studente </button>
+</a> 
+
+
+
+

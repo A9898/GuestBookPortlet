@@ -44,7 +44,7 @@ import org.osgi.service.component.annotations.Component;
 public class GradebookPortlet extends MVCPortlet {
 	public void doView(RenderRequest request, RenderResponse response) throws IOException, PortletException{
 		
-		String messaggio = "Studenti:";
+		String messaggio = "Lista Studenti";
 		request.setAttribute("messaggio_benvenuto", messaggio);
 		
 		try {
