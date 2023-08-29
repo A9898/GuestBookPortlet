@@ -2,6 +2,10 @@
 
 La mia prima portlet con liferay 7.2.
 
-Mostra gli studenti presenti nel database 
 
-<img width="1007" alt="PortletStudentImage" src="https://github.com/A9898/GuestBookPortlet/assets/66921720/fffa50de-fa2f-427a-9ee3-23f180d9c511">
+
+![PortletImage](https://github.com/A9898/GuestBookPortlet/assets/66921720/088ba14e-4519-4726-9ff2-283905f919e5)
+
+![FormAggiuntaStudenti](https://github.com/A9898/GuestBookPortlet/assets/66921720/0e1b319f-3176-47a0-b063-76f868dff142)
+
+![InserimentoStudente](https://github.com/A9898/GuestBookPortlet/assets/66921720/073b2446-72c3-483c-ada6-5f2b08d78fb2)

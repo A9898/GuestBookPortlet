@@ -2,14 +2,13 @@ package com.training.gradebookPortlet.portlet;
 
 import com.training.gradebookPortlet.constants.GradebookPortletKeys;
 import com.training.liferay.gradebookservicebuilder.model.Students;
-import com.training.liferay.gradebookservicebuilder.service.StudentsLocalServiceUtil;
-
+import com.training.liferay.gradebookservicebuilder.service.StudentsLocalService;
 import java.io.IOException;
 import java.util.List;
-
-import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-
+import com.liferay.portal.kernel.util.ParamUtil;
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
@@ -18,6 +17,7 @@ import javax.portlet.RenderResponse;
  
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 
 /**
@@ -42,32 +42,47 @@ import org.osgi.service.component.annotations.Component;
 
 
 public class GradebookPortlet extends MVCPortlet {
+	
+	@Reference
+	private StudentsLocalService studentsLocalService;
+	 
+	
 	public void doView(RenderRequest request, RenderResponse response) throws IOException, PortletException{
 		
-		String messaggio = "Studenti:";
+		String messaggio = "Lista Studenti";
 		request.setAttribute("messaggio_benvenuto", messaggio);
 		
-		try {
-			Students students = StudentsLocalServiceUtil.getStudents(1);
-			request.setAttribute("studentIdZero", students);
-			
-		} catch (PortalException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		List<Students> listaStudenti = StudentsLocalServiceUtil.getStudentses(0, 100);
+		List<Students> listaStudenti = studentsLocalService.getStudentses(0, 100);
 		request.setAttribute("listaStudenti", listaStudenti);
-		
-//		Students studente = students.get(0).getStudent_name();
-//		request.setAttribute("studente", studente);
 		
 		super.doView(request,response);
 	}
 	
-	
-	
+	  public void aggiungiStudente(ActionRequest actionRequest, ActionResponse actionResponse)
+	            throws IOException, PortletException {
+		  	
+		  	// Raccogli i dati inseriti nel form 
+		  	String uuid = ParamUtil.getString(actionRequest, "uuid");
+	        String name = ParamUtil.getString(actionRequest, "name");
+	        String surname = ParamUtil.getString(actionRequest, "surname");
+	        String age = ParamUtil.getString(actionRequest, "age");
+	        String address = ParamUtil.getString(actionRequest, "address");
+	       
+	        // Esegui l'azione per aggiungere il nuovo studente al database
+	        try {
+	        	studentsLocalService.addStudents(uuid, name, surname, age, address);
+	        }
+	        catch(Exception e) {
+	        	e.printStackTrace();
+	        }
+	    }	  
+	  
+	  
 }
+
+
+
 
 
 
