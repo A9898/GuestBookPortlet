@@ -39,10 +39,6 @@
 </liferay-portlet:renderURL>
 
 
-<a id="addStudentLink" href="${addStudentURL}"> 
-	<button id="addStudentButton"> Aggiungi Studente </button>
-</a> 
-
-
+<aui:button id="addStudentLink" href="${addStudentURL}" value="Aggiungi Studente" /> 
 
 
