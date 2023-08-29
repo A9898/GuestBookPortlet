@@ -2,7 +2,6 @@
 
 La mia prima portlet con liferay 7.2.
 
-Portlet che mostra gli studenti presenti nel db, permette l'aggiunta di nuovi studenti che vengono automaticamente memorizzati su db e mostrati nella pagina principale.
 
 
 ![PortletImage](https://github.com/A9898/GuestBookPortlet/assets/66921720/088ba14e-4519-4726-9ff2-283905f919e5)
